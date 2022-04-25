@@ -1,0 +1,16 @@
+{
+    "name": "code-course",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "vite --host 0.0.0.0 --clearScreen false",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "vite": "^2.9.5"
+    },
+    "dependencies": {
+        "alpinejs": "^3.10.2"
+    }
+}

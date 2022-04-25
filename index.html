@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="/css/almond.css">
+  <link rel="stylesheet" href="/css/pylon.css">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Learn Alpine JS and some</title>
+</head>
+
+<body>
+  <main>
+
+    <header>
+      <h2>Alpine JS course</h2>
+      <p>From <a href="https://codecourse.com/watch/learn-alpine-js" target="_blank" rel="noopener noreferrer">code-course.com</a></p>
+    </header>
+
+
+    <section>
+      <h4>Hide/show</h4>
+      <hstack spacing="m" x-data="{ show: false }">
+        <button @click="show = ! show">Toggle</button>
+        <divider></divider>
+        <div x-show="show" x-transition>Content shown ...</div>
+      </hstack>
+    </section>
+
+    <section>
+      <h4>Counter</h4>
+      <hstack spacing="m" x-data="{ count: 0 }">
+        <button @click="count--"> - </button>
+        <divider></divider>
+        <pre x-text="count"></pre>
+        <divider></divider>
+        <button @click="count++"> + </button>
+      </hstack>
+    </section>
+
+    <section>
+      <h4>Model/binding</h4>
+      <hstack spacing="m" x-data="{ name: '' }">
+        <input type="text" x-model="name">
+        Typed text &quot;<strong x-text="name"></strong>&quot; has length
+        &quot;<span x-text="name.length"></span>&quot; chars.
+      </hstack>
+    </section>
+
+    <section>
+      <h4>Image search</h4>
+      <form x-on:submit.prevent="getImage" x-data="{
+            query: '',
+            img: '',
+            getImage () {
+              this.img = `https://source.unsplash.com/600x400/?${this.query}`
+              console.log(this.query)
+            }
+          }
+          ">
+        <vstack spacing="m">
+          <hstack spacing="xs">
+            <input type="search" x-model="query">
+            <button type="submit">Search</button>
+          </hstack>
+          <div class="imgshow dotbg">
+            <div x-show="img">
+              <img x-bind:src="img" x-bind:alt="query">
+            </div>
+          </div>
+        </vstack>
+      </form>
+    </section>
+
+
+  </main>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
