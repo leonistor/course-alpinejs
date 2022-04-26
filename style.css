@@ -38,3 +38,7 @@ header {
     width     : 600px;
     min-height: 400px;
 }
+
+.item_selected {
+    text-decoration: underline;
+}

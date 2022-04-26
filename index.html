@@ -76,6 +76,56 @@
       </form>
     </section>
 
+    <section>
+      <h4>Inputs</h4>
+      <vstack spacing="m">
+        <p x-data="{ agreed: false }">
+          <input type="checkbox" x-model="agreed">
+          <span x-text="agreed"></span>
+          <span x-show="agreed">You have agreed!</span>
+        </p>
+        <p x-data="{ records: [] }">
+          <input type="checkbox" x-model="records" value="1">
+          <input type="checkbox" x-model="records" value="2">
+          <input type="checkbox" x-model="records" value="3">
+          <span x-text="records"></span>
+        </p>
+      </vstack>
+    </section>
+
+    <section>
+      <h4>Attribute binding</h4>
+      <vstack spacing="m">
+        <form x-data="{ name: '' }" x-on:submit.prevent="alert('Name: ' + name)">
+          <input type="text" x-model="name"> <span>Must have at least 3 chars!</span>
+          <button type="submit" x-bind:disabled="name.length < 3">Submit form</button>
+        </form>
+        <div x-data="{ progress: 0 }">
+          <progress max="100" x-bind:value="progress" x-text="`${progress}%`"></progress>
+          <button @click="progress += 10">Go up</button>
+        </div>
+        <div x-data="{
+            selected: [],
+            items: [
+              {id: 1, name: 'Mere'},
+              {id: 2, name: 'Pere'},
+              {id: 3, name: 'Vinete'}
+            ]
+          }">
+          <template x-for="item in items">
+            <div>
+              <input type="checkbox"
+                     x-bind:value="item.id"
+                     x-model.number="selected">
+              <span x-text="item.name"
+                    x-bind:class="{'item_selected': selected.includes(item.id)}"></span>
+            </div>
+          </template>
+          <span x-text="selected"></span>
+
+        </div>
+      </vstack>
+    </section>
 
   </main>
   <script type="module" src="/main.js"></script>
