@@ -100,8 +100,11 @@
           <input type="text" x-model="name"> <span>Must have at least 3 chars!</span>
           <button type="submit" x-bind:disabled="name.length < 3">Submit form</button>
         </form>
-        <div x-data="{ progress: 0 }">
-          <progress max="100" x-bind:value="progress" x-text="`${progress}%`"></progress>
+        <div x-data="{ progress: 20 }">
+          <progress
+                    max="100"
+                    x-bind:value="progress"
+                    x-text="`${progress}%`"></progress>
           <button @click="progress += 10">Go up</button>
         </div>
         <div x-data="{
@@ -123,6 +126,15 @@
           </template>
           <span x-text="selected"></span>
 
+        </div>
+      </vstack>
+    </section>
+
+    <section>
+      <h4>HTML/text</h4>
+      <vstack spacing="m">
+        <div x-data="{ body: '<strong>Ana are mere</strong>' }">
+          <div x-html="body"></div>
         </div>
       </vstack>
     </section>
