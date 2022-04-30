@@ -2,10 +2,12 @@ lockfileVersion: 5.3
 
 specifiers:
   alpinejs: ^3.10.2
+  marked: ^4.0.14
   vite: ^2.9.5
 
 dependencies:
   alpinejs: 3.10.2
+  marked: 4.0.14
 
 devDependencies:
   vite: 2.9.5
@@ -260,6 +262,12 @@ packages:
     dependencies:
       has: 1.0.3
     dev: true
+
+  /marked/4.0.14:
+    resolution: {integrity: sha512-HL5sSPE/LP6U9qKgngIIPTthuxC0jrfxpYMZ3LdGDD3vTnLs59m2Z7r6+LNDR3ToqEQdkKd6YaaEfJhodJmijQ==}
+    engines: {node: '>= 12'}
+    hasBin: true
+    dev: false
 
   /nanoid/3.3.3:
     resolution: {integrity: sha512-p1sjXuopFs0xg+fPASzQ28agW1oHD7xDsd9Xkf3T15H3c/cifrFHVwrh74PdoklAPi+i7MdRsE47vm2r6JoB+w==}

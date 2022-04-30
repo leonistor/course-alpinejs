@@ -42,3 +42,8 @@ header {
 .item_selected {
     text-decoration: underline;
 }
+
+#preview {
+    min-height: 8rem;
+    padding   : 0.3rem;
+}
