@@ -172,6 +172,47 @@
       </div>
     </section>
 
+    <section>
+      <h4>x-cloak</h4>
+      <style>
+        /* apply to elems with attr */
+        [x-cloak] {
+          display: none important !;
+        }
+      </style>
+      <pre>
+        &lt;style&gt;
+          /* apply to elems with attr */
+          [x-cloak] { display: none important!; }
+        &lt;/style&gt;
+      </pre>
+      <div x-data="{ show: false }">
+        <div x-show="show" x-cloak>I am hidden</div>
+        <button x-on:click="show = true">Show it</button>
+      </div>
+    </section>
+
+    <section>
+      <h4>x-ref Image Preview</h4>
+      <form x-data="{
+          imagePreview: null,
+          previewImage () {
+            const reader = new FileReader()
+            reader.onload = (e) => this.imagePreview = e.target.result
+            reader.readAsDataURL(this.$refs.image.files[0])
+          }
+        }">
+        <vstack spacing="s">
+          <div class="imgshow">
+            <template x-if="imagePreview">
+              <img :src="imagePreview" alt="Preview Image">
+            </template>
+          </div>
+          <input type="file" x-on:change="previewImage" x-ref="image">
+        </vstack>
+      </form>
+    </section>
+
   </main>
   <script type="module" src="/main.js"></script>
 </body>
