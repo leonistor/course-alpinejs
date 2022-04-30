@@ -139,6 +139,39 @@
       </vstack>
     </section>
 
+    <section>
+      <h4>For loops</h4>
+      <div x-data="fruits = ['apple', 'big banana', 'orange balls', 'grapes butts']">
+        <template x-for="(fruit, index) in fruits">
+          <div> <span x-text="index + 1"></span>: <span x-text="fruit"></span></div>
+        </template>
+      </div>
+      <hr>
+      <div x-data="{
+          people: [
+            { id: 1, name: 'Alex', points: 1 },
+            { id: 2, name: 'Coca', points: 10 },
+            { id: 3, name: 'Shefa', points: 30 },
+            { id: 4, name: 'Zuza', points: 100 }
+          ],
+          get peopleSortedByPoints() {
+            return this.people.sort((a, b) => a.points -b.points)
+          },
+          incrementPoints (person) {
+            person.points += 10
+          }
+        }">
+        <vstack spacing="s">
+          <template x-for="person in peopleSortedByPoints" :key="person.id">
+            <div>
+              <span x-text="person.name"></span>: <span x-text="person.points"></span> points
+              <button x-on:click="incrementPoints(person)"> [+] </button>
+            </div>
+          </template>
+        </vstack>
+      </div>
+    </section>
+
   </main>
   <script type="module" src="/main.js"></script>
 </body>
