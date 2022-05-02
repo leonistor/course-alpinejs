@@ -9,7 +9,6 @@
     },
     "devDependencies": {
         "vite": "^2.9.5",
-        "vite-imagetools": "^4.0.3",
         "vite-plugin-handlebars": "^1.6.0"
     },
     "dependencies": {
